@@ -42,27 +42,7 @@ module.exports = {
         priority: 'replace',
       },
       {
-        path: path.resolve(__dirname, 'src/partials', 'hero.html'),
-        location: 'main',
-        template_filename: 'index.html',
-      },
-      {
-        path: path.resolve(__dirname, 'src/partials', 'section-about.html'),
-        location: 'main',
-        template_filename: 'index.html',
-      },
-      {
-        path: path.resolve(__dirname, 'src/partials', 'section-contact-us.html'),
-        location: 'main',
-        template_filename: 'index.html',
-      },
-      {
-        path: path.resolve(__dirname, 'src/partials', 'section-our-projects.html'),
-        location: 'main',
-        template_filename: 'index.html',
-      },
-      {
-        path: path.resolve(__dirname, 'src/partials', 'section-our-tasks.html'),
+        path: path.resolve(__dirname, 'src/partials', 'section-films.html'),
         location: 'main',
         template_filename: 'index.html',
       },

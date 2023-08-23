@@ -2,7 +2,7 @@
 
 /*=================================Variables=============================*/
 $main-font-family: 'TT Hoves', sans-serif;
-$accent-color: #383838;
+$accent-color: #FF6B08;
 $font-dark-color: #333333;
 $font-light-color: #bdbdbd;
 $font-lighter-color: #f3f3f3;
@@ -88,9 +88,23 @@ nav {
 }
 
 /*============================Break points=================================================*/
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   .container {
-    max-width: 1200px;
+    max-width: 910px;
     padding: 0 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 618px;
+    padding: 0 15px;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    max-width: 300px;
+    padding: 0 10px;
   }
 }
