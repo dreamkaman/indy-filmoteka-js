@@ -1,13 +1,11 @@
 /* drop default styles */
 
 /*=================================Variables=============================*/
-$main-font-family: 'TT Hoves', sans-serif;
+$main-font-family: 'Roboto', sans-serif;
 $accent-color: #FF6B08;
-$font-dark-color: #333333;
-$font-light-color: #bdbdbd;
-$font-lighter-color: #f3f3f3;
-$bg-section-color: #fbfbfb;
-$bg-footer-color: #2c2c2c;
+$font-dark-color: #000;
+$font-light-color: #545454;
+$bg-footer-color: #F7F7F7;
 
 /* --transition-for-all: all cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms;*/
 
@@ -26,10 +24,11 @@ body {
   margin: 0;
 
   font-family: $main-font-family;
-  font-size: 14px;
-
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 133.33%;
   color: $font-dark-color;
-  letter-spacing: 0.04em;
+
   max-width: 100%;
 }
 
