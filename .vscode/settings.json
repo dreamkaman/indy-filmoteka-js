@@ -1,4 +1,14 @@
 {
-  "cSpell.words": ["Filmoteka", "gifsicle", "mozjpeg", "optipng", "pngquant"],
+  "cSpell.words": [
+    "appspot",
+    "eccb",
+    "Filmoteka",
+    "filmotekajs",
+    "firebaseapp",
+    "gifsicle",
+    "mozjpeg",
+    "optipng",
+    "pngquant"
+  ],
   "liveServer.settings.port": 5501
 }
