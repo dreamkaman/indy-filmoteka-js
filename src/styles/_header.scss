@@ -1,4 +1,51 @@
-.header-logo {
-    width: 20px;
-    height: 20px;
+@media screen and (min-width: 320px) {
+    .page-header {
+        height: 230px;
+        padding-top: 60px;
+
+        background-image: url('../partials/assets/header-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .page-header__logo {
+            width: 20px;
+            height: 20px;
+            stroke: #818181
+        }
+
+        .page-header__logo-text {
+            display: none;
+        }
+
+        .page-header__navigation {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .page-header__menu {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                color: #FFFFFF;
+
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .page-header {
+        background-image: url('../partials/assets/header-tablet.jpg');
+
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .page-header {
+        background-image: url('../partials/assets/header-desktop.jpg');
+
+    }
 }
