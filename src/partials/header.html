@@ -1,12 +1,14 @@
 <header class="page-header">
     <div class="container">
         <nav class="page-header__navigation">
-            <svg class="page-header__logo">
-                <use href="./assets/sprite.svg#logo"></use>
-            </svg>
-            <p class="page-header__logo-text">Filmoteka</p>
+            <div class="logo-wrapper">
+                <svg class="page-header__logo">
+                    <use href="./assets/sprite.svg#logo"></use>
+                </svg>
+                <p class="page-header__logo-text">Filmoteka</p>
+            </div>
             <ul class="page-header__menu">
-                <li class="page-header__menu-item">
+                <li class="page-header__menu-item active-menu">
                     <a href="/index.html">home</a>
                 </li>
                 <li class="page-header__menu-item">
@@ -14,15 +16,16 @@
                 </li>
             </ul>
         </nav>
-        <label for="filmSearch" class="film-search">
-            <input class="film-search__input" type="search" name="filmSearch" id="filmSearch"
-                placeholder="Films searching">
-
-            <svg class="page-header__search-lens">
-                <use href="./assets/sprite.svg#search"></use>
-            </svg>
-        </label>
-
-        <p>Search result not successful. Enter the correct movie name.</p>
+        <div class="film-search">
+            <label for="filmSearch" class="film-search__label">
+                <input class="film-search__input" type="search" name="filmSearch" id="filmSearch"
+                    placeholder="Films searching">
+                <svg class="film-search__lens">
+                    <use href="./assets/sprite.svg#search"></use>
+                </svg>
+            </label>
+            <p class="film-search__error visually-hidden">Search result not successful. Enter the correct movie name.
+            </p>
+        </div>
     </div>
 </header>

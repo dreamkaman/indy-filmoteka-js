@@ -5,6 +5,7 @@ $main-font-family: 'Roboto', sans-serif;
 $accent-color: #FF6B08;
 $font-dark-color: #000;
 $font-light-color: #545454;
+$error-color: #FF001B;
 $bg-footer-color: #F7F7F7;
 
 /* --transition-for-all: all cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms;*/
@@ -84,6 +85,10 @@ nav {
   height: 1px !important;
   width: 1px !important;
   overflow: hidden;
+}
+
+.active-menu {
+  border-bottom: 3px solid $accent-color;
 }
 
 /*============================Break points=================================================*/
