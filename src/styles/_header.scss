@@ -20,14 +20,14 @@
 
         .page-header__navigation {
             display: flex;
-            align-items: center;
+            align-items: baseline;
             justify-content: space-between;
 
             margin-bottom: 40px;
 
             .page-header__menu {
                 display: flex;
-                align-items: center;
+                align-items: baseline;
                 justify-content: center;
 
                 line-height: normal;
@@ -41,42 +41,86 @@
         }
 
         .film-search {
-            position: relative;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-            .film-search__input {
+            .film-search__label {
+                position: relative;
+                display: inline;
                 width: 100%;
-                font-size: 14px;
-                color: #FFFFFF;
-                background-color: transparent;
-                border: none;
-                border-bottom: 1px solid #FFFFFF;
+                max-width: 336px;
+                margin-bottom: 22px;
 
-                &::placeholder {
+                .film-search__input {
+                    width: 100%;
+                    max-width: 336px;
+
+                    font-size: 14px;
                     color: #FFFFFF;
+                    background-color: transparent;
+                    border: none;
+                    outline: transparent;
+                    border-bottom: 1px solid #FFFFFF;
+
+                    &::placeholder {
+                        color: #FFFFFF;
+                    }
+
                 }
 
+                .film-search__lens {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    width: 12px;
+                    height: 12px;
+                }
             }
 
-            .page-header__search-lens {
-                position: absolute;
-                top: 0;
-                right: 0;
 
-                width: 12px;
-                height: 12px;
+
+            .film-search__error {
+                width: 100%;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: normal;
+
+                color: $error-color;
             }
-
         }
+
+
+
     }
 
 }
 
 @media screen and (min-width: 768px) {
+
     .page-header {
         background-image: url('../partials/assets/header-tablet.jpg');
 
+        .page-header__logo-text {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            color: #FFFFFF;
+        }
+
+        .film-search {
+
+            .film-search__error {
+                text-align: center;
+            }
+        }
     }
+
 }
 
 @media screen and (min-width: 1024px) {
