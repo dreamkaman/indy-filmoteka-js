@@ -23,7 +23,10 @@ module.exports = {
     open: true,
     hot: true,
   },
-  entry: [path.resolve(__dirname, 'src', 'index.js')],
+  entry: {
+    index: path.resolve(__dirname, 'src', 'index.js'),
+    library: path.resolve(__dirname, 'src', 'library.js'),
+  },
   output: {
     path: path.join(__dirname, './dist'),
     clean: true,
@@ -33,12 +36,25 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
+      chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src', 'library.html'),
+      filename: 'library.html',
+      chunks: ['library'],
     }),
     new HtmlWebpackPartialsPlugin([
       {
         path: './src/partials/header.html',
         location: 'header',
         template_filename: 'index.html',
+        priority: 'replace',
+      },
+      {
+        path: './src/partials/header.html',
+        location: 'header',
+        template_filename: 'library.html',
         priority: 'replace',
       },
       {
@@ -50,6 +66,11 @@ module.exports = {
         path: path.resolve(__dirname, 'src/partials', 'footer.html'),
         location: 'footer',
         template_filename: 'index.html',
+      },
+      {
+        path: path.resolve(__dirname, 'src/partials', 'footer.html'),
+        location: 'footer',
+        template_filename: 'library.html',
       },
     ]),
     new MiniCssExtractPlugin({
