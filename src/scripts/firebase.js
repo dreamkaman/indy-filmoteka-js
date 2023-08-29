@@ -1,11 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 
-const API_KEY = import.meta.env.VITE_API_KEY;
+const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: API_KEY,
+  apiKey: FIREBASE_API_KEY,
   authDomain: 'filmotekajs-eccb6.firebaseapp.com',
   projectId: 'filmotekajs-eccb6',
   storageBucket: 'filmotekajs-eccb6.appspot.com',

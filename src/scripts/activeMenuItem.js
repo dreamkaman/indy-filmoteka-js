@@ -18,4 +18,9 @@ switch (location?.pathname) {
     menu[0].classList.remove('active-menu');
     menu[1].classList.add('active-menu');
     break;
+
+  default:
+    menu[1].classList.remove('active-menu');
+    menu[0].classList.add('active-menu');
+    break;
 }
