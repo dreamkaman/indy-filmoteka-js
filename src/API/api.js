@@ -13,5 +13,9 @@ export const getPopularMovies = async () => {
     'https://api.themoviedb.org/3/trending/movie/week?language=en-US',
     options,
   );
+  console.log(response);
+
   return response;
 };
+
+getPopularMovies();
