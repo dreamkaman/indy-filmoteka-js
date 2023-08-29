@@ -8,7 +8,9 @@
     "gifsicle",
     "mozjpeg",
     "optipng",
-    "pngquant"
+    "pngquant",
+    "Riabushko",
+    "TMDB"
   ],
   "liveServer.settings.port": 5501
 }
