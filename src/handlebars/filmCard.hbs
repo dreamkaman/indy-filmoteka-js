@@ -1,0 +1,9 @@
+<div class="selected-films-grid">
+    {{#each films}}
+    <div class="movie-card">
+        <img class="movie-poster" src="{{posterPath}}" alt="{{title}}">
+        <h3 class="movie-title">{{title}}</h3>
+        <p class="movie-info">{{genres}} | {{year}}</p>
+    </div>
+    {{/each}}
+</div>

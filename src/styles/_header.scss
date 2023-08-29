@@ -2,6 +2,7 @@
     .page-header {
         height: 230px;
         padding-top: 60px;
+        margin-bottom: 20px;
 
         background-image: url('../partials/assets/header-mobile.jpg');
         background-repeat: no-repeat;
@@ -101,6 +102,8 @@
 @media screen and (min-width: 768px) {
 
     .page-header {
+        margin-bottom: 60px;
+
         background-image: url('../partials/assets/header-tablet.jpg');
 
         .page-header__logo-text {

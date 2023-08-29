@@ -8,15 +8,14 @@ const options = {
   },
 };
 
-export const getPopularMovies = async () => {
+export const getPopularMovies = async (page = 1) => {
   const response = await fetch(
-    'https://api.themoviedb.org/3/trending/movie/week?language=en-US',
+    `https://api.themoviedb.org/3/trending/movie/week?language=en-US&page=${page}`,
     options,
   );
   const data = await response.json();
-  console.log(data);
 
-  return data;
+  return data.results;
 };
 
 export const getMoviesGenres = async () => {

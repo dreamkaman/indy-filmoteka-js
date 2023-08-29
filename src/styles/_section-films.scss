@@ -1,0 +1,65 @@
+@media screen and (min-width: 320px) {
+    .selected-films {
+
+        .container {
+            .selected-films-grid {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: flex-start;
+                margin-left: -30px;
+                margin-top: -30px;
+                margin-bottom: 40px;
+
+                .movie-card {
+                    width: 100%;
+                    margin-left: 30px;
+                    margin-top: 30px;
+
+                    .movie-poster {
+                        border-radius: 5px;
+                        margin-bottom: 10px;
+                    }
+
+                    .movie-title {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 133.333%;
+                        text-transform: uppercase;
+                    }
+
+                    .movie-info {
+                        color: $accent-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .selected-films {
+        .container {
+            .selected-films-grid {
+                margin-bottom: 50px;
+
+                .movie-card {
+                    width: calc((100% - 2 * 30px)/2);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .selected-films {
+        .container {
+            .selected-films-grid {
+
+                .movie-card {
+                    width: calc((100% - 3 * 30px)/3);
+                }
+            }
+        }
+    }
+}
