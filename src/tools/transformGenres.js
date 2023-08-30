@@ -6,7 +6,6 @@ export const transformGenres = (genresId, allGenres) => {
   });
 
   const genresStr = newGenres.join(', ');
-  console.log(genresStr.length);
 
   if (genresStr.length > 40) {
     return genresStr.slice(0, 37) + '...';

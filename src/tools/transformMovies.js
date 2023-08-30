@@ -3,7 +3,6 @@ import { getYear } from './getYear';
 
 export const transformPopularMovies = (popularMovies, allGenres) => {
   const transformedPopularMovies = popularMovies.map((popularMovie) => {
-    console.log('popularMovie - ', popularMovie);
     const { genre_ids, title, release_date, poster_path } = popularMovie;
 
     const newMovie = {
