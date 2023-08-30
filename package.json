@@ -47,6 +47,7 @@
   "browserslist": "> 1%, last 2 versions, not dead",
   "dependencies": {
     "firebase": "^10.3.0",
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.8",
+    "tui-pagination": "^3.4.1"
   }
 }

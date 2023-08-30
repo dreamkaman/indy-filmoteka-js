@@ -15,7 +15,7 @@ export const getPopularMovies = async (page = 1) => {
   );
   const data = await response.json();
 
-  return data.results;
+  return data;
 };
 
 export const getMoviesGenres = async () => {
@@ -37,4 +37,13 @@ export const getTVGenres = async () => {
   return data.genres;
 };
 
-getPopularMovies();
+export const getMovieByName = async (movieName, page = 1) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=${page}`,
+    options,
+  );
+
+  const data = await response.json();
+
+  return data;
+};
