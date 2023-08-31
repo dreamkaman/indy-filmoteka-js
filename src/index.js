@@ -7,6 +7,6 @@ import './partials/section-films.html';
 import './index.scss'; //for 'mini-css-extract-plugin'
 
 import './scripts/activeMenuItem';
-import './API/api';
+// import './API/api';
 import './scripts/sectionFilms';
-// import './scripts/pagination';
+import './scripts/pagination';

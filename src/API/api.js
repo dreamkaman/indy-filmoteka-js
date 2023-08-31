@@ -47,3 +47,9 @@ export const getMovieByName = async (movieName, page = 1) => {
 
   return data;
 };
+
+const moviesGenres = await getMoviesGenres();
+
+const tvGenres = await getTVGenres();
+
+export const allGenres = [...moviesGenres, ...tvGenres];
