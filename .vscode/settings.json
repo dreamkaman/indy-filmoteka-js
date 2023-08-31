@@ -1,16 +1,17 @@
 {
-  "cSpell.words": [
-    "appspot",
-    "eccb",
-    "Filmoteka",
-    "filmotekajs",
-    "firebaseapp",
-    "gifsicle",
-    "mozjpeg",
-    "optipng",
-    "pngquant",
-    "Riabushko",
-    "TMDB"
-  ],
-  "liveServer.settings.port": 5501
+	"cSpell.words": [
+		"appspot",
+		"eccb",
+		"Filmoteka",
+		"filmotekajs",
+		"firebaseapp",
+		"gifsicle",
+		"mozjpeg",
+		"noposter",
+		"optipng",
+		"pngquant",
+		"Riabushko",
+		"TMDB"
+	],
+	"liveServer.settings.port": 5501
 }

@@ -20,15 +20,19 @@
                     margin-top: 30px;
                     cursor: pointer;
 
-                    .movie-poster {
-                        position: relative;
+                    .movie-poster__wrapper {
                         border-radius: 5px;
                         margin-bottom: 10px;
-                        transition: $transition-for-all;
+                        overflow: hidden;
 
-                        &:hover {
-                            transform: scale(1.015);
+                        .movie-poster {
+                            position: relative;
                             transition: $transition-for-all;
+
+                            &:hover {
+                                transform: scale(1.015);
+                                transition: $transition-for-all;
+                            }
                         }
                     }
 
