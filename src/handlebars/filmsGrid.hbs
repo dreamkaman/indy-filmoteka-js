@@ -1,10 +1,7 @@
-<div class="selected-films-grid">
-    {{#each films}}
-    <div class="movie-card">
-        <img class="movie-poster" src="{{posterPath}}" alt="{{title}}">
-        <h3 class="movie-title">{{title}}</h3>
-        <p class="movie-info">{{genres}} | {{year}}</p>
-    </div>
-    {{/each}}
+{{#each films}}
+<div class="movie-card">
+    <img class="movie-poster" src="{{posterPath}}" alt="{{title}}">
+    <h3 class="movie-title">{{title}}</h3>
+    <p class="movie-info">{{genres}} | {{year}}</p>
 </div>
-<div id="tui-pagination-container" class="tui-pagination"></div>
+{{/each}}
