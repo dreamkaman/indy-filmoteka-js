@@ -1,4 +1,3 @@
-console.log(document.location);
 const HOME_PATH = '/index.html';
 const LIBRARY_PATH = '/library.html';
 
