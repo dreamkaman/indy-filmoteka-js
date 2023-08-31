@@ -19,6 +19,6 @@ inputSearch.addEventListener('input', (event) => {
 
 filmSearchForm.addEventListener('submit', (event) => {
 	event.preventDefault();
-	console.log(event.target.value);
+
 	buildMovieSection();
 });

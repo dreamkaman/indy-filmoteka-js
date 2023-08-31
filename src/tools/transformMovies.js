@@ -13,8 +13,6 @@ export const transformPopularMovies = (popularMovies, allGenres) => {
 			genres: genre_ids.length ? transformGenres(genre_ids, allGenres) : 'Unknown genres',
 		};
 
-		console.log(release_date, genre_ids, newMovie);
-
 		return newMovie;
 	});
 

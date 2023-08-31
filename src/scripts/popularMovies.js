@@ -19,8 +19,6 @@ export async function buildMovieSection(eventData) {
 		data = await getMovieByName(paginationOptions.searchText, eventData?.page ?? 1);
 	}
 
-	console.log(data);
-
 	if (data.total_pages > 500) {
 		paginationOptions.totalItems = 1000;
 	} else {
