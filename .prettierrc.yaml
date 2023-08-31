@@ -1,6 +1,6 @@
 {
   printWidth: 100,
-  useTabs: false,
+  useTabs: true,
   semi: true,
   singleQuote: true,
   trailingComma: 'all',
