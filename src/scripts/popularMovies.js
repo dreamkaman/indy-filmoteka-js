@@ -4,7 +4,7 @@ import { transformPopularMovies } from '../tools/transformMovies';
 
 import template from '../handlebars/filmsGrid.hbs';
 
-import { paginationOptions } from './pagination';
+import { paginationOptions, pagination } from './pagination';
 
 const selectedFilmsContainer = document.querySelector('div.selected-films-grid');
 
@@ -20,9 +20,13 @@ export async function buildMovieSection(eventData) {
 	}
 
 	if (data.total_pages > 500) {
-		paginationOptions.totalItems = 1000;
+		pagination.setTotalItems(1000);
 	} else {
-		paginationOptions.totalItems = 20 * data.total_pages;
+		pagination.setTotalItems(20 * data.total_pages);
+	}
+
+	if (!eventData) {
+		pagination.movePageTo(1);
 	}
 
 	const popularMovies = data.results;
