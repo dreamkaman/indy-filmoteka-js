@@ -44,7 +44,7 @@
 
                     margin-left: 30px;
                     margin-top: 30px;
-                    cursor: pointer;
+
 
                     .movie-poster__wrapper {
                         border-radius: 5px;
@@ -53,6 +53,7 @@
                         .movie-poster {
                             position: relative;
                             transition: $transition-for-all;
+                            cursor: pointer;
 
                             &:hover {
                                 transform: scale(1.015);

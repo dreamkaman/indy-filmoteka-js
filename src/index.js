@@ -10,3 +10,5 @@ import './scripts/activeMenuItem';
 import './scripts/popularMovies';
 import './scripts/pagination';
 import './scripts/searchMovie';
+import './scripts/showDetails';
+import './scripts/modalWindow';
