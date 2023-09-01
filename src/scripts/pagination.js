@@ -32,6 +32,6 @@ const container = document.getElementById('tui-pagination-container');
 
 export const pagination = new Pagination(container, paginationOptions);
 
-pagination.on('afterMove', async function (eventData) {
+pagination.on('before', async function (eventData) {
 	buildMovieSection(eventData);
 });
