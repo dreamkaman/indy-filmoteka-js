@@ -113,6 +113,107 @@
 
         .modal {
             width: calc(100% - 40px);
+
+            .modal__close-button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+
+                width: 30px;
+                height: 30px;
+                stroke: #000;
+                cursor: pointer;
+            }
+
+            .movie-card {
+                padding: 50px 20px 40px;
+
+                .movie__poster {
+                    margin-bottom: 30px;
+                    border-radius: 5px;
+                }
+
+                .movie__title {
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: normal;
+                    text-transform: uppercase;
+                }
+
+                table {
+                    margin-bottom: 20px;
+                    font-weight: 500;
+
+
+                    td {
+                        vertical-align: text-top;
+
+                        span {
+                            padding: 1px 8px;
+                            border-radius: 5px;
+                            color: #fff;
+                            background-color: $accent-color;
+                        }
+                    }
+
+                    .row-title {
+                        padding-right: 40px;
+
+
+                        white-space: nowrap;
+                        color: $table-title-color;
+                    }
+
+                    .row-title:not(:last-child) {
+                        padding-bottom: 10px;
+                    }
+                }
+
+                h4 {
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                    line-height: 133.333%;
+                    text-transform: uppercase;
+                }
+
+                .overview {
+                    margin-bottom: 20px;
+                    line-height: 166.667%;
+                }
+
+                .button-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        padding: 5px;
+                        border: 1px solid;
+                        border-radius: 5px;
+                        width: 113px;
+                        height: 44px;
+
+                        text-transform: uppercase;
+                    }
+
+                    .btn-watched {
+                        border-color: transparent;
+                        color: #fff;
+                        background-color: $accent-color;
+                        margin-right: 14px;
+                    }
+
+                    .btn-queue {
+                        border-color: #000;
+                        background-color: #fff;
+                    }
+                }
+            }
         }
     }
 }
