@@ -54,11 +54,6 @@
                             position: relative;
                             transition: $transition-for-all;
                             cursor: pointer;
-
-                            &:hover {
-                                transform: scale(1.015);
-                                transition: $transition-for-all;
-                            }
                         }
                     }
 
@@ -158,6 +153,17 @@
 
                 .movie-card {
                     width: calc((100% - 3 * 30px)/3);
+
+                    .movie-poster__wrapper {
+
+                        .movie-poster {
+
+                            &:hover {
+                                transform: scale(1.015);
+                                transition: $transition-for-all;
+                            }
+                        }
+                    }
                 }
             }
         }

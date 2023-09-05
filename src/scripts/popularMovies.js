@@ -1,6 +1,6 @@
 import { getPopularMovies, getMovieByName, allGenres } from '../API/api';
 
-import { transformPopularMovies } from '../tools/transformMovies';
+import { transformPopularMovies } from '../tools/transformPopularMovies';
 
 import template from '../handlebars/filmsGrid.hbs';
 
@@ -25,11 +25,13 @@ export async function buildMovieSection(eventData) {
 		pagination.setTotalItems(20 * data.total_pages);
 	}
 
-	if (!eventData) {
+	if (!eventData && pagination.getCurrentPage() !== 1) {
 		pagination.movePageTo(1);
 	}
 
 	const popularMovies = data.results;
+
+	paginationOptions.currentSetOfMovies = popularMovies;
 
 	const popularMoviesTransformed = { films: transformPopularMovies(popularMovies, allGenres) };
 

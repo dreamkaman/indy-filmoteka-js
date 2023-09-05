@@ -4,6 +4,7 @@ import { buildMovieSection } from './popularMovies';
 
 export const paginationOptions = {
 	searchText: '',
+	currentSetOfMovies: [],
 	usageStatistics: false,
 	totalItems: 500 * 20,
 	itemsPerPage: 20,
@@ -32,6 +33,6 @@ const container = document.getElementById('tui-pagination-container');
 
 export const pagination = new Pagination(container, paginationOptions);
 
-pagination.on('before', async function (eventData) {
+pagination.on('afterMove', (eventData) => {
 	buildMovieSection(eventData);
 });
