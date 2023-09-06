@@ -7,14 +7,15 @@ import { allGenres } from '../API/api';
 
 const modalWindowForm = document.querySelector('form.movie-card');
 
+export let transformedMovie = {};
+
 selectedFilmsContainer.addEventListener('click', (event) => {
 	if (event.target.id) {
 		const foundMovie = paginationOptions.currentSetOfMovies.find(
 			(movie) => movie.id === Number(event.target.id),
 		);
-		console.log(foundMovie);
 
-		const transformedMovie = transformSelectedMovie(foundMovie, allGenres);
+		transformedMovie = transformSelectedMovie(foundMovie, allGenres);
 
 		const markUp = template({ movieInfo: transformedMovie });
 

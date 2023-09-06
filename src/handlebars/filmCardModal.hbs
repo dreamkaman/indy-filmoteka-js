@@ -1,28 +1,31 @@
 {{#with movieInfo}}
 <img src="{{poster_path}}" alt="{{title}}" class="movie__poster">
-<h3 class="movie__title">{{title}}</h3>
-<table>
-    <tr>
-        <td class="row-title">Vote / Votes</td>
-        <td><span>{{vote_average}}</span> / {{vote_count}}</td>
-    </tr>
-    <tr>
-        <td class="row-title">Popularity</td>
-        <td>{{popularity}}</td>
-    </tr>
-    <tr>
-        <td class="row-title">Original Title</td>
-        <td>{{original_title}}</td>
-    </tr>
-    <tr>
-        <td class="row-title">Genre</td>
-        <td>{{genre_ids}}</td>
-    </tr>
-</table>
-<h4>About</h4>
-<p class="overview">{{overview}}</p>
-<div class="button-wrapper">
-    <button type="button" class="btn-watched">Add to watched</button>
-    <button type="button" class="btn-queue">Add to queue</button>
+<div class="movie-info">
+    <h3 class="movie__title">{{title}}</h3>
+    <table>
+        <tr>
+            <td class="row-title">Vote / Votes</td>
+            <td><span>{{vote_average}}</span> / {{vote_count}}</td>
+        </tr>
+        <tr>
+            <td class="row-title">Popularity</td>
+            <td>{{popularity}}</td>
+        </tr>
+        <tr>
+            <td class="row-title">Original Title</td>
+            <td class="original-title">{{original_title}}</td>
+        </tr>
+        <tr>
+            <td class="row-title">Genre</td>
+            <td>{{genre_ids}}</td>
+        </tr>
+    </table>
+    <h4>About</h4>
+    <p class="overview">{{overview}}</p>
+    <div class="button-wrapper">
+        <button type="button" class="btn-watched">Add to watched</button>
+        <button type="button" class="btn-queue">Add to queue</button>
+    </div>
 </div>
+
 {{/with}}
