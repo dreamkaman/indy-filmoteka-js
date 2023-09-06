@@ -1,0 +1,134 @@
+@media screen and (min-width: 320px) {
+    .library-header {
+        height: 230px;
+        padding-top: 60px;
+        margin-bottom: 20px;
+
+        background-image: url('../partials/assets/library-header-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .library-header__logo {
+            width: 20px;
+            height: 20px;
+            stroke: #818181
+        }
+
+        .library-header__logo-text {
+            display: none;
+        }
+
+        .library-header__navigation {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+
+            margin-bottom: 40px;
+
+            .library-header__menu {
+                display: flex;
+                align-items: baseline;
+                justify-content: center;
+
+                line-height: normal;
+                text-transform: uppercase;
+                color: #FFFFFF;
+
+                .library-header__menu-item:not(:last-child) {
+                    margin-right: 40px;
+                }
+            }
+        }
+
+        .film-search {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .film-search__label {
+                position: relative;
+                display: inline;
+                width: 100%;
+                max-width: 336px;
+                margin-bottom: 22px;
+
+                .film-search__input {
+                    width: 100%;
+                    max-width: 336px;
+
+                    font-size: 14px;
+                    color: #FFFFFF;
+                    background-color: transparent;
+                    border: none;
+                    outline: transparent;
+                    border-bottom: 1px solid #FFFFFF;
+
+                    &::placeholder {
+                        color: #FFFFFF;
+                    }
+
+                }
+
+                .film-search__lens {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+
+
+
+            .film-search__error {
+                width: 100%;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: normal;
+
+                color: $error-color;
+            }
+        }
+
+
+
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .library-header {
+        margin-bottom: 60px;
+
+        background-image: url('../partials/assets/library-header-tablet.jpg');
+
+        .library-header__logo-text {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            color: #FFFFFF;
+        }
+
+        .film-search {
+
+            .film-search__error {
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .library-header {
+        background-image: url('../partials/assets/library-header-desktop.jpg');
+
+    }
+}
