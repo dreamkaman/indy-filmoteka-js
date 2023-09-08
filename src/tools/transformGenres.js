@@ -1,14 +1,16 @@
 export const transformGenres = (genresId, allGenres) => {
-  const newGenres = genresId.map((genreId) => {
-    const foundGenre = allGenres.find((genreItem) => genreItem.id === genreId);
+	console.log(genresId);
 
-    return foundGenre?.name;
-  });
+	const newGenres = genresId.map((genreId) => {
+		const foundGenre = allGenres.find((genreItem) => genreItem.id === genreId);
 
-  const genresStr = newGenres.join(', ');
+		return foundGenre?.name;
+	});
 
-  if (genresStr.length > 40) {
-    return genresStr.slice(0, 37) + '...';
-  }
-  return genresStr;
+	const genresStr = newGenres.join(', ');
+
+	if (genresStr.length > 40) {
+		return genresStr.slice(0, 37) + '...';
+	}
+	return genresStr;
 };
