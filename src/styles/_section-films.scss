@@ -208,14 +208,14 @@
                         text-transform: uppercase;
                     }
 
-                    .btn-watched {
+                    .btn-add-to-watched {
                         border-color: transparent;
                         color: #fff;
                         background-color: $accent-color;
                         margin-right: 14px;
                     }
 
-                    .btn-queue {
+                    .btn-add-to-queue {
                         border-color: #000;
                         background-color: #fff;
                     }
@@ -335,7 +335,7 @@
 
                     .button-wrapper {
 
-                        .btn-watched {
+                        .btn-add-to-watched {
                             &:hover {
                                 color: black;
                                 background-color: #fff;
@@ -343,7 +343,7 @@
                             }
                         }
 
-                        .btn-queue {
+                        .btn-add-to-queue {
 
                             &:hover {
                                 color: #fff;

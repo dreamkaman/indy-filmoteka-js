@@ -3,14 +3,15 @@ import { transformedMovie } from './showDetails';
 const backDropDiv = document.querySelector('div.backdrop');
 const closeBtnModal = document.querySelector('svg.modal__close-button');
 
+const watchedMovies = () => JSON.parse(localStorage.getItem('watchedMovies'));
+const queueMovies = () => JSON.parse(localStorage.getItem('queueMovies'));
+
 export const showModal = () => {
 	backDropDiv.classList.remove('visually-hidden');
 	document.body.style.overflow = 'hidden';
-	const addToWatchedButton = document.querySelector('button.btn-watched');
-	const addToQueueButton = document.querySelector('button.btn-queue');
 
-	const watchedMovies = () => JSON.parse(localStorage.getItem('watchedMovies'));
-	const queueMovies = () => JSON.parse(localStorage.getItem('queueMovies'));
+	const addToWatchedButton = document.querySelector('button.btn-add-to-watched');
+	const addToQueueButton = document.querySelector('button.btn-add-to-queue');
 
 	if (watchedMovies()?.find((movie) => movie.id === transformedMovie.id)) {
 		addToWatchedButton.textContent = 'Remove from watched';
@@ -58,7 +59,7 @@ export const showModal = () => {
 			case 'Remove from watched':
 				localStorage.setItem(
 					'watchedMovies',
-					JSON.stringify(watchedMovies.filter((movie) => movie.id !== transformedMovie.id)),
+					JSON.stringify(watchedMovies().filter((movie) => movie.id !== transformedMovie.id)),
 				);
 				addToWatchedButton.textContent = 'Add to watched';
 				break;

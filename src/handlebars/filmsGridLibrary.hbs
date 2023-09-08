@@ -1,0 +1,11 @@
+{{#each films}}
+<div class="movie-card">
+    <div class="movie-poster__wrapper">
+        <img id={{id}} class="movie-poster" src="{{posterPath}}" alt="{{title}}">
+    </div>
+    <div class="movie-info-wrapper">
+        <h3 class="movie-title">{{title}}</h3>
+        <p class="movie-info">{{genres}} | {{year}} <span>{{vote}}</span></p>
+    </div>
+</div>
+{{/each}}
