@@ -88,8 +88,13 @@ nav {
   overflow: hidden;
 }
 
+/*=============================Common global classes*/
 .active-menu {
   border-bottom: 3px solid $accent-color;
+}
+
+main {
+  min-height: 70vh;
 }
 
 /*============================Break points=================================================*/

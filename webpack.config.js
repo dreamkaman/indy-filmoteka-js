@@ -48,13 +48,13 @@ module.exports = {
 		}),
 		new HtmlWebpackPartialsPlugin([
 			{
-				path: './src/partials/header-home.html',
+				path: './src/partials/header.html',
 				location: 'header',
 				template_filename: 'index.html',
 				priority: 'replace',
 			},
 			{
-				path: './src/partials/header-library.html',
+				path: './src/partials/header.html',
 				location: 'header',
 				template_filename: 'library.html',
 				priority: 'replace',
