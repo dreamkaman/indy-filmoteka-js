@@ -65,6 +65,11 @@ module.exports = {
 				template_filename: 'index.html',
 			},
 			{
+				path: path.resolve(__dirname, 'src/partials', 'section-films.html'),
+				location: 'main',
+				template_filename: 'library.html',
+			},
+			{
 				path: path.resolve(__dirname, 'src/partials', 'footer.html'),
 				location: 'footer',
 				template_filename: 'index.html',

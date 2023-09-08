@@ -1,11 +1,11 @@
 {{#each films}}
 <div class="movie-card">
     <div class="movie-poster__wrapper">
-        <img id={{id}} class="movie-poster" src="{{posterPath}}" alt="{{title}}">
+        <img id={{id}} class="movie-poster" src="{{poster_path}}" alt="{{title}}">
     </div>
     <div class="movie-info-wrapper">
         <h3 class="movie-title">{{title}}</h3>
-        <p class="movie-info">{{genres}} | {{year}} <span>{{vote}}</span></p>
+        <p class="movie-info">{{genre_ids}} | {{release_date}} <span>{{vote_average}}</span></p>
     </div>
 </div>
 {{/each}}
