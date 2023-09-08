@@ -1,5 +1,5 @@
-const HOME_PATH = '/index.html';
-const LIBRARY_PATH = '/library.html';
+const HOME_PATH = '/';
+const LIBRARY_PATH = '/library';
 
 const menu = document.querySelectorAll('li.page-header__menu-item');
 const headerBtnWrapper = document.querySelector('div.header-buttons-wrapper');
@@ -7,8 +7,6 @@ const formSearch = document.querySelector('form.film-search');
 const pageHeader = document.querySelector('header');
 
 const location = document.location;
-
-console.log(location);
 
 switch (location?.pathname) {
 	case HOME_PATH:
