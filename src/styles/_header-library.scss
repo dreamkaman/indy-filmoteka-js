@@ -41,60 +41,6 @@
             }
         }
 
-        .film-search {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            .film-search__label {
-                position: relative;
-                display: inline;
-                width: 100%;
-                max-width: 336px;
-                margin-bottom: 22px;
-
-                .film-search__input {
-                    width: 100%;
-                    max-width: 336px;
-
-                    font-size: 14px;
-                    color: #FFFFFF;
-                    background-color: transparent;
-                    border: none;
-                    outline: transparent;
-                    border-bottom: 1px solid #FFFFFF;
-
-                    &::placeholder {
-                        color: #FFFFFF;
-                    }
-
-                }
-
-                .film-search__lens {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-
-                    width: 12px;
-                    height: 12px;
-                }
-            }
-
-
-
-            .film-search__error {
-                width: 100%;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: normal;
-
-                color: $error-color;
-            }
-        }
-
-
-
     }
 
 }
@@ -116,12 +62,6 @@
             color: #FFFFFF;
         }
 
-        .film-search {
-
-            .film-search__error {
-                text-align: center;
-            }
-        }
     }
 
 }

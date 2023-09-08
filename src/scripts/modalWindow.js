@@ -9,22 +9,22 @@ export const showModal = () => {
 	const addToWatchedButton = document.querySelector('button.btn-watched');
 	const addToQueueButton = document.querySelector('button.btn-queue');
 
-	const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies'));
-	const queueMovies = JSON.parse(localStorage.getItem('queueMovies'));
+	const watchedMovies = () => JSON.parse(localStorage.getItem('watchedMovies'));
+	const queueMovies = () => JSON.parse(localStorage.getItem('queueMovies'));
 
-	if (watchedMovies?.find((movie) => movie.id === transformedMovie.id)) {
+	if (watchedMovies()?.find((movie) => movie.id === transformedMovie.id)) {
 		addToWatchedButton.textContent = 'Remove from watched';
 	}
 
-	if (queueMovies?.find((movie) => movie.id === transformedMovie.id)) {
+	if (queueMovies()?.find((movie) => movie.id === transformedMovie.id)) {
 		addToQueueButton.textContent = 'Remove from queue';
 	}
 
 	addToQueueButton.addEventListener('click', (event) => {
 		switch (event.target.textContent) {
 			case 'Add to queue':
-				if (queueMovies?.length) {
-					localStorage.setItem('queueMovies', JSON.stringify([...queueMovies, transformedMovie]));
+				if (queueMovies()?.length) {
+					localStorage.setItem('queueMovies', JSON.stringify([...queueMovies(), transformedMovie]));
 				} else {
 					localStorage.setItem('queueMovies', JSON.stringify([transformedMovie]));
 				}
@@ -34,7 +34,7 @@ export const showModal = () => {
 			case 'Remove from queue':
 				localStorage.setItem(
 					'queueMovies',
-					JSON.stringify(queueMovies.filter((movie) => movie.id !== transformedMovie.id)),
+					JSON.stringify(queueMovies().filter((movie) => movie.id !== transformedMovie.id)),
 				);
 				event.target.textContent = 'Add to queue';
 				break;
@@ -44,10 +44,10 @@ export const showModal = () => {
 	addToWatchedButton.addEventListener('click', (event) => {
 		switch (event.target.textContent) {
 			case 'Add to watched':
-				if (watchedMovies?.length) {
+				if (watchedMovies()?.length) {
 					localStorage.setItem(
 						'watchedMovies',
-						JSON.stringify([...watchedMovies, transformedMovie]),
+						JSON.stringify([...watchedMovies(), transformedMovie]),
 					);
 				} else {
 					localStorage.setItem('watchedMovies', JSON.stringify([transformedMovie]));
