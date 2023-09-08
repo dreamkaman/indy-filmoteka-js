@@ -8,6 +8,8 @@ const pageHeader = document.querySelector('header');
 
 const location = document.location;
 
+console.log(location);
+
 switch (location?.pathname) {
 	case HOME_PATH:
 		menu[1].classList.remove('active-menu');
