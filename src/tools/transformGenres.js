@@ -1,6 +1,4 @@
 export const transformGenres = (genresId, allGenres) => {
-	console.log(genresId);
-
 	const newGenres = genresId.map((genreId) => {
 		const foundGenre = allGenres.find((genreItem) => genreItem.id === genreId);
 
