@@ -1,5 +1,5 @@
-const HOME_PATH = '/';
-const LIBRARY_PATH = '/library';
+const HOME_PATH = 'index.html'; //'/' | '/index.html';
+const LIBRARY_PATH = '/library.html'; //'/library' | '/library.html';
 
 const menu = document.querySelectorAll('li.page-header__menu-item');
 const headerBtnWrapper = document.querySelector('div.header-buttons-wrapper');

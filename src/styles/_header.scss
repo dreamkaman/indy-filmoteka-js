@@ -93,37 +93,37 @@
             }
         }
 
-        .header-buttons-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        // .header-buttons-wrapper {
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
 
-            button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+        //     button {
+        //         display: flex;
+        //         align-items: center;
+        //         justify-content: center;
 
-                padding: 5px;
-                border: 1px solid;
-                border-radius: 5px;
-                width: 136px;
-                height: 44px;
-                font-size: 12px;
-                color: #fff;
-                text-transform: uppercase;
-            }
+        //         padding: 5px;
+        //         border: 1px solid;
+        //         border-radius: 5px;
+        //         width: 136px;
+        //         height: 44px;
+        //         font-size: 12px;
+        //         color: #fff;
+        //         text-transform: uppercase;
+        //     }
 
-            .btn-watched {
-                border-color: transparent;
-                background-color: $accent-color;
-                margin-right: 14px;
-            }
+        //     .btn-watched {
+        //         border-color: transparent;
+        //         background-color: $accent-color;
+        //         margin-right: 14px;
+        //     }
 
-            .btn-queue {
-                border-color: #fff;
-                background-color: transparent;
-            }
-        }
+        //     .btn-queue {
+        //         border-color: #fff;
+        //         background-color: transparent;
+        //     }
+        // }
 
 
     }
@@ -173,28 +173,28 @@
             color: $accent-color;
         }
 
-        .header-buttons-wrapper {
+        // .header-buttons-wrapper {
 
-            .btn-watched {
-                transition: $transition-for-all;
+        //     .btn-watched {
+        //         transition: $transition-for-all;
 
-                &:hover {
-                    background-color: transparent;
-                    border-color: #fff;
-                    transition: $transition-for-all;
-                }
-            }
+        //         &:hover {
+        //             background-color: transparent;
+        //             border-color: #fff;
+        //             transition: $transition-for-all;
+        //         }
+        //     }
 
-            .btn-queue {
-                transition: $transition-for-all;
+        //     .btn-queue {
+        //         transition: $transition-for-all;
 
-                &:hover {
-                    border-color: transparent;
-                    background-color: $accent-color;
-                    transition: $transition-for-all;
-                }
-            }
-        }
+        //         &:hover {
+        //             border-color: transparent;
+        //             background-color: $accent-color;
+        //             transition: $transition-for-all;
+        //         }
+        //     }
+        // }
 
     }
 
