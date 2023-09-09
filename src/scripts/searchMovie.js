@@ -2,6 +2,8 @@ import { paginationOptions } from './pagination';
 
 import { buildMovieSection } from './popularMovies';
 
+export const errorParagraph = document.querySelector('p.film-search__error');
+
 const filmSearchForm = document.querySelector('form.film-search');
 
 const inputSearch = document.querySelector('input.film-search__input');
@@ -15,6 +17,8 @@ inputSearch.addEventListener('input', (event) => {
 		svgSearchLens.classList.remove('visually-hidden');
 	}
 	paginationOptions.searchText = event.target.value;
+
+	errorParagraph.classList.add('visually-hidden');
 });
 
 filmSearchForm.addEventListener('submit', (event) => {

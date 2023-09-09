@@ -169,6 +169,10 @@
     .page-header {
         background-image: url('../partials/assets/header-desktop.jpg');
 
+        .page-header__logo-text:hover {
+            color: $accent-color;
+        }
+
         .header-buttons-wrapper {
 
             .btn-watched {
