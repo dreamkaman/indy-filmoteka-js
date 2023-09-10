@@ -1,7 +1,7 @@
 import template from '../handlebars/filmsGridLibrary.hbs';
 
-const watchedButton = document.querySelector('button.btn-watched');
-const queueButton = document.querySelector('button.btn-queue');
+const watchedButton = document.getElementById('watched');
+const queueButton = document.getElementById('queue');
 const moviesGridSection = document.querySelector('div.selected-films-grid');
 
 const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies'));
