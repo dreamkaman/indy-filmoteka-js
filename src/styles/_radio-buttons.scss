@@ -27,10 +27,18 @@
         margin-right: 14px;
     }
 
-    .radio-queue {}
-
     input:checked+label {
         border-color: transparent;
         background-color: $accent-color;
+    }
+
+    input:not(:checked)+label {
+        transition: $transition-for-all;
+
+        &:hover {
+            border-color: transparent;
+            background-color: $accent-color;
+            transition: $transition-for-all;
+        }
     }
 }

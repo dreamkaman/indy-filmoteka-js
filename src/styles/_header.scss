@@ -92,40 +92,6 @@
                 color: $error-color;
             }
         }
-
-        // .header-buttons-wrapper {
-        //     display: flex;
-        //     align-items: center;
-        //     justify-content: center;
-
-        //     button {
-        //         display: flex;
-        //         align-items: center;
-        //         justify-content: center;
-
-        //         padding: 5px;
-        //         border: 1px solid;
-        //         border-radius: 5px;
-        //         width: 136px;
-        //         height: 44px;
-        //         font-size: 12px;
-        //         color: #fff;
-        //         text-transform: uppercase;
-        //     }
-
-        //     .btn-watched {
-        //         border-color: transparent;
-        //         background-color: $accent-color;
-        //         margin-right: 14px;
-        //     }
-
-        //     .btn-queue {
-        //         border-color: #fff;
-        //         background-color: transparent;
-        //     }
-        // }
-
-
     }
 
     .header-library {
@@ -173,29 +139,20 @@
             color: $accent-color;
         }
 
-        // .header-buttons-wrapper {
+        .page-header__navigation {
 
-        //     .btn-watched {
-        //         transition: $transition-for-all;
+            .page-header__menu {
 
-        //         &:hover {
-        //             background-color: transparent;
-        //             border-color: #fff;
-        //             transition: $transition-for-all;
-        //         }
-        //     }
+                .page-header__menu-item {
+                    transition: $transition-for-all;
 
-        //     .btn-queue {
-        //         transition: $transition-for-all;
-
-        //         &:hover {
-        //             border-color: transparent;
-        //             background-color: $accent-color;
-        //             transition: $transition-for-all;
-        //         }
-        //     }
-        // }
-
+                    :hover {
+                        color: $accent-color;
+                        transition: $transition-for-all;
+                    }
+                }
+            }
+        }
     }
 
     .header-library {
