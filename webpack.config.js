@@ -73,11 +73,13 @@ module.exports = {
 				path: path.resolve(__dirname, 'src/partials', 'footer.html'),
 				location: 'footer',
 				template_filename: 'index.html',
+				priority: 'replace',
 			},
 			{
 				path: path.resolve(__dirname, 'src/partials', 'footer.html'),
 				location: 'footer',
 				template_filename: 'library.html',
+				priority: 'replace',
 			},
 		]),
 		new MiniCssExtractPlugin({
