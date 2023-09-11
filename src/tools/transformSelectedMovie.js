@@ -9,7 +9,9 @@ export const transformSelectedMovie = (movie, allGenres) => {
 		title: title.length < 40 ? title : title.slice(0, 37) + '...',
 		release_date: getYear(release_date) || 'Unknown release date',
 		poster_path: poster_path ? `https://www.themoviedb.org/t/p/w1280${poster_path}` : img,
-		genre_ids: genre_ids.length ? transformGenres(genre_ids, allGenres) : 'Unknown genres',
+		genre_ids: genre_ids.length
+			? transformGenres(genre_ids, allGenres).genresStr
+			: 'Unknown genres',
 	};
 
 	return newMovie;
