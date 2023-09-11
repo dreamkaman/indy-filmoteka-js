@@ -9,8 +9,8 @@ export const transformGenres = (genresId, allGenres) => {
 
 	const genresFull = genresStr;
 
-	if (genresStr.length > 40) {
-		return genresStr.slice(0, 37) + '...';
+	if (genresStr.length > 35) {
+		return genresStr.slice(0, 32) + '...';
 	}
 	return { genresStr, genresFull };
 };
