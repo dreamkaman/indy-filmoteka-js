@@ -5,7 +5,7 @@ import template from '../handlebars/filmCardModal.hbs';
 import { showModal } from './modalWindow';
 import { allGenres } from '../API/api';
 
-const modalWindowForm = document.querySelector('form.movie-card');
+export const modalWindowForm = document.querySelector('form.movie-card');
 
 export let transformedMovie;
 
