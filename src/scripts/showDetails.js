@@ -1,5 +1,5 @@
 import { selectedFilmsContainer } from './popularMovies';
-import { transformSelectedMovie } from '../tools/transformSelectedMovie';
+import { transformMovies } from '../tools/transformMovies';
 import { paginationOptions } from './pagination';
 import template from '../handlebars/filmCardModal.hbs';
 import { showModal } from './modalWindow';
@@ -11,11 +11,11 @@ export let transformedMovie;
 
 selectedFilmsContainer.addEventListener('click', (event) => {
 	if (event.target.id) {
-		const foundMovie = paginationOptions.currentSetOfMovies.find(
+		const foundMovie = paginationOptions.currentSetOfMovies.filter(
 			(movie) => movie.id === Number(event.target.id),
 		);
 
-		transformedMovie = transformSelectedMovie(foundMovie, allGenres);
+		transformedMovie = transformMovies(foundMovie, allGenres)[0];
 
 		const markUp = template({ movieInfo: transformedMovie });
 

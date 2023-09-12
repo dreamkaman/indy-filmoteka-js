@@ -1,11 +1,11 @@
 {{#with movieInfo}}
-<img src="{{poster_path}}" alt="{{title}}" class="movie__poster">
+<img src="{{posterPath}}" alt="{{title}}" class="movie__poster">
 <div class="movie-info">
     <h3 class="movie__title">{{title}}</h3>
     <table>
         <tr>
             <td class="row-title">Vote / Votes</td>
-            <td><span>{{vote_average}}</span> / {{vote_count}}</td>
+            <td><span>{{voteAverage}}</span> / {{voteCount}}</td>
         </tr>
         <tr>
             <td class="row-title">Popularity</td>
@@ -13,11 +13,11 @@
         </tr>
         <tr>
             <td class="row-title">Original Title</td>
-            <td class="original-title">{{original_title}}</td>
+            <td class="original-title">{{originalTitle}}</td>
         </tr>
         <tr>
             <td class="row-title">Genre</td>
-            <td>{{genre_ids}}</td>
+            <td>{{genres}}</td>
         </tr>
     </table>
     <h4>About</h4>
