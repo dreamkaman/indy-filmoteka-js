@@ -2,9 +2,19 @@ import { transformGenres } from './transformGenres';
 import { getYear } from './getYear';
 import img from '../assets/noposter.jpg';
 
-export const transformPopularMovies = (popularMovies, allGenres) => {
-	const transformedPopularMovies = popularMovies.map((popularMovie) => {
-		const { id, genre_ids, title, release_date, poster_path } = popularMovie;
+export const transformMovies = (movies, allGenres) => {
+	const transformedPopularMovies = movies.map((movie) => {
+		const {
+			id,
+			genre_ids,
+			title,
+			release_date,
+			poster_path,
+			vote_average,
+			vote_count,
+			popularity,
+			original_title,
+		} = movie;
 		const newMovie = {
 			id,
 			titleFull: title,
@@ -17,6 +27,10 @@ export const transformPopularMovies = (popularMovies, allGenres) => {
 			genresFull: genre_ids?.length
 				? transformGenres(genre_ids, allGenres).genresFull
 				: 'Unknown genres',
+			voteAverage: vote_average,
+			voteCount: vote_count,
+			popularity,
+			originalTitle: original_title,
 		};
 
 		return newMovie;
