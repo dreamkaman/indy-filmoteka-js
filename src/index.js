@@ -12,3 +12,4 @@ import './scripts/pagination';
 import './scripts/searchMovie';
 import './scripts/showDetails';
 import './scripts/modalWindow';
+import './scripts/heartBit';
