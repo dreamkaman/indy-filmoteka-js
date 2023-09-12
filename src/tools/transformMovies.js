@@ -14,6 +14,7 @@ export const transformMovies = (movies, allGenres) => {
 			vote_count,
 			popularity,
 			original_title,
+			overview,
 		} = movie;
 		const newMovie = {
 			id,
@@ -31,6 +32,7 @@ export const transformMovies = (movies, allGenres) => {
 			voteCount: vote_count,
 			popularity,
 			originalTitle: original_title,
+			overview,
 		};
 
 		return newMovie;

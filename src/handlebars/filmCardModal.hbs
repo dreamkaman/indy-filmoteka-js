@@ -1,7 +1,7 @@
 {{#with movieInfo}}
-<img src="{{posterPath}}" alt="{{title}}" class="movie__poster">
+<img src="{{posterPath}}" alt="{{titleFull}}" class="movie__poster">
 <div class="movie-info">
-    <h3 class="movie__title">{{title}}</h3>
+    <h3 class="movie__title">{{titleFull}}</h3>
     <table>
         <tr>
             <td class="row-title">Vote / Votes</td>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td class="row-title">Genre</td>
-            <td>{{genres}}</td>
+            <td>{{genresFull}}</td>
         </tr>
     </table>
     <h4>About</h4>

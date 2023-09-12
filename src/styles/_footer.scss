@@ -12,6 +12,11 @@
         color: $font-light-color;
         background-color: $bg-footer-color;
 
+        .heart_text_wrapper {
+            display: flex;
+            align-items: center;
+        }
+
         .page-footer__text {
             text-align: center;
         }
@@ -24,11 +29,30 @@
             margin-bottom: 10px;
         }
 
-        .page-footer__hart {
+        .heart_wrapper {
+            position: relative;
+            display: inline-block;
             width: 14px;
             height: 13px;
-            margin: 0 10px 0;
+            margin: 0 6px 0;
+
+            .page-footer__hart {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+                width: 14px;
+                height: 13px;
+                transition: $transition-for-all;
+            }
+
+            .heart_bit {
+                width: 17px;
+                height: 16px;
+            }
         }
+
     }
 }
 
