@@ -12,6 +12,11 @@
         color: $font-light-color;
         background-color: $bg-footer-color;
 
+        .heart_text_wrapper {
+            display: flex;
+            align-items: center;
+        }
+
         .page-footer__text {
             text-align: center;
         }

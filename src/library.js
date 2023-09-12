@@ -3,4 +3,4 @@ import './library.scss'; //for 'mini-css-extract-plugin'
 
 import './scripts/activeMenuItem';
 import './scripts/showLibrary';
-// import './scripts/heartBit';
+import './scripts/heartBit';

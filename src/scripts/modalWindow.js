@@ -9,6 +9,7 @@ const queueMovies = () => JSON.parse(localStorage.getItem('queueMovies'));
 export const showModal = () => {
 	backDropDiv.classList.remove('visually-hidden');
 	document.body.style.overflow = 'hidden';
+	console.log(transformedMovie);
 
 	const addToWatchedButton = document.querySelector('button.btn-add-to-watched');
 	const addToQueueButton = document.querySelector('button.btn-add-to-queue');
