@@ -8,10 +8,8 @@ const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies'));
 const queueMovies = JSON.parse(localStorage.getItem('queueMovies'));
 
 const markUp = template({ films: watchedMovies });
-// console.log(moviesGridSection);
+
 moviesGridSection.innerHTML = markUp;
-console.log(moviesGridSection);
-// console.log(markUp);
 
 watchedButton.addEventListener('click', () => {
 	const markUp = template({ films: watchedMovies });
