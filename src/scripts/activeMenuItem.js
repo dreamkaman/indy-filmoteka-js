@@ -1,5 +1,7 @@
 const HOME_PATH = '/'; //'/' | '/index.html';
-const LIBRARY_PATH = '/library.html'; //'/library' | '/library.html';
+const LIBRARY_PATH = process.env.NODE_ENV === 'development' ? '/library.html' : '/library'; //'/library' | '/library.html';
+
+console.log();
 
 const menu = document.querySelectorAll('li.page-header__menu-item');
 const headerRadioWrapper = document.querySelector('.radio-wrapper');
