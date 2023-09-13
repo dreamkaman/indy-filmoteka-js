@@ -92,6 +92,35 @@
                 color: $error-color;
             }
         }
+
+        .user-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+
+            border: 1px solid $bg-footer-color;
+            border-radius: 50%;
+
+            fill: $bg-footer-color;
+
+            cursor: pointer;
+
+            &:hover {
+                border-color: $accent-color;
+                fill: $accent-color;
+                background-color: transparent;
+                transition: $transition-for-all;
+            }
+        }
+
+        .logined {
+            border-color: $accent-color;
+            fill: $accent-color;
+        }
     }
 
     .header-library {
