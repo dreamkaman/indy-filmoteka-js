@@ -151,7 +151,7 @@
             width: calc(100% - 40px);
             max-width: 450px;
 
-            .movie-card {
+            .modal-form {
                 padding: 50px 20px 40px;
 
                 .movie__poster {
@@ -283,7 +283,7 @@
             transform: translate(-50%, -50%);
             max-width: 618px;
 
-            .movie-card {
+            .modal-form {
                 display: flex;
                 align-items: flex-start;
                 justify-content: space-between;
@@ -380,7 +380,7 @@
                 }
             }
 
-            .movie-card {
+            .modal-form {
                 display: flex;
                 align-items: flex-start;
                 justify-content: space-between;
