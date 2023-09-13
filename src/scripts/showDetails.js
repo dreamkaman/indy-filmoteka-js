@@ -6,8 +6,10 @@ import { showModal } from './modalWindow';
 import { allGenres } from '../API/api';
 
 export const modalWindowForm = document.querySelector('form.movie-card');
+const watchedMovies = () => JSON.parse(localStorage.getItem('watchedMovies'));
+const queueMovies = () => JSON.parse(localStorage.getItem('queueMovies'));
 
-export let transformedMovie;
+let transformedMovie;
 
 selectedFilmsContainer.addEventListener('click', (event) => {
 	if (event.target.id) {
@@ -22,5 +24,64 @@ selectedFilmsContainer.addEventListener('click', (event) => {
 		modalWindowForm.innerHTML = markUp;
 
 		showModal();
+		addEventListeners();
 	}
 });
+
+function addEventListeners() {
+	const addToWatchedButton = document.querySelector('button.btn-add-to-watched');
+	const addToQueueButton = document.querySelector('button.btn-add-to-queue');
+
+	if (watchedMovies()?.find((movie) => movie.id === transformedMovie.id)) {
+		addToWatchedButton.textContent = 'Remove from watched';
+	}
+
+	if (queueMovies()?.find((movie) => movie.id === transformedMovie.id)) {
+		addToQueueButton.textContent = 'Remove from queue';
+	}
+
+	addToQueueButton.addEventListener('click', (event) => {
+		switch (event.target.textContent) {
+			case 'Add to queue':
+				if (queueMovies()?.length) {
+					localStorage.setItem('queueMovies', JSON.stringify([...queueMovies(), transformedMovie]));
+				} else {
+					localStorage.setItem('queueMovies', JSON.stringify([transformedMovie]));
+				}
+				event.target.textContent = 'Remove from queue';
+
+				break;
+			case 'Remove from queue':
+				localStorage.setItem(
+					'queueMovies',
+					JSON.stringify(queueMovies().filter((movie) => movie.id !== transformedMovie.id)),
+				);
+				event.target.textContent = 'Add to queue';
+				break;
+		}
+	});
+
+	addToWatchedButton.addEventListener('click', (event) => {
+		switch (event.target.textContent) {
+			case 'Add to watched':
+				if (watchedMovies()?.length) {
+					localStorage.setItem(
+						'watchedMovies',
+						JSON.stringify([...watchedMovies(), transformedMovie]),
+					);
+				} else {
+					localStorage.setItem('watchedMovies', JSON.stringify([transformedMovie]));
+				}
+				addToWatchedButton.textContent = 'Remove from watched';
+				break;
+
+			case 'Remove from watched':
+				localStorage.setItem(
+					'watchedMovies',
+					JSON.stringify(watchedMovies().filter((movie) => movie.id !== transformedMovie.id)),
+				);
+				addToWatchedButton.textContent = 'Add to watched';
+				break;
+		}
+	});
+}

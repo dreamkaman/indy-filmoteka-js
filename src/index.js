@@ -13,4 +13,4 @@ import './scripts/searchMovie';
 import './scripts/showDetails';
 import './scripts/modalWindow';
 import './scripts/heartBit';
-import './scripts/auth';
+import './scripts/authUser';
