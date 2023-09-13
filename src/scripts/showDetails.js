@@ -5,7 +5,7 @@ import template from '../handlebars/filmCardModal.hbs';
 import { showModal } from './modalWindow';
 import { allGenres } from '../API/api';
 
-export const modalWindowForm = document.querySelector('form.movie-card');
+export const modalWindowForm = document.querySelector('form.modal-form');
 const watchedMovies = () => JSON.parse(localStorage.getItem('watchedMovies'));
 const queueMovies = () => JSON.parse(localStorage.getItem('queueMovies'));
 
