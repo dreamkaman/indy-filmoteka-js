@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { getDatabase } from 'firebase/database';
+// import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
 
@@ -19,6 +20,10 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 export const auth = getAuth(firebaseApp);
+
+const dataBaseUrl = process.env.FIREBASE_DB_URL;
+
+export const dataBase = getDatabase(firebaseApp, dataBaseUrl);
 
 // const db = getFirestore(firebaseApp);
 // db.collection('movies').getDocs();
