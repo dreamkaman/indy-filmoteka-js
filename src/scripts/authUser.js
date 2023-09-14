@@ -1,9 +1,11 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
 import { auth } from './firebase';
 
-import { showModal } from './modalWindow';
+import { showModal, closeModal } from './modalWindow';
 import templateLoginForm from '../handlebars/loginForm.hbs';
 import templateRegistrationForm from '../handlebars/registrationForm.hbs';
+import { showErrorMessage, showSuccessMessage } from './toastifyMessages';
 
 const svgUserIcon = document.querySelector('.user-icon');
 const modalWindowForm = document.querySelector('form.modal-form');
@@ -21,27 +23,26 @@ modalWindowForm.addEventListener('submit', async (event) => {
 		//Login logic
 		try {
 			const response = await signInWithEmailAndPassword(auth, email, password);
-			console.log(response);
-			modalWindowForm.reset();
+			showSuccessMessage('User logged in successfully!');
+			closeModal();
 		} catch (error) {
-			console.log(error);
+			showErrorMessage(error.message);
 		}
 
 		return;
 	}
 
 	if (repeatedPassword && password !== repeatedPassword) {
-		alert('Passwords are different!');
+		showErrorMessage('Passwords are different!');
 		return;
 	}
 
 	//Registration logic
 	try {
 		const response = await createUserWithEmailAndPassword(auth, email, password);
-
-		console.log(response);
+		showSuccessMessage('User registered successfully!');
 	} catch (error) {
-		console.error(error);
+		showErrorMessage(error.message);
 	}
 });
 

@@ -1,8 +1,6 @@
 const HOME_PATH = '/';
 const LIBRARY_PATH = process.env.NODE_ENV === 'development' ? '/library.html' : '/library';
 
-console.log();
-
 const menu = document.querySelectorAll('li.page-header__menu-item');
 const headerRadioWrapper = document.querySelector('.radio-wrapper');
 const formSearch = document.querySelector('form.film-search');
