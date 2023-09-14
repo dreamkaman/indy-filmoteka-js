@@ -41,6 +41,7 @@ modalWindowForm.addEventListener('submit', async (event) => {
 	try {
 		const response = await createUserWithEmailAndPassword(auth, email, password);
 		showSuccessMessage('User registered successfully!');
+		modalWindowForm.reset();
 	} catch (error) {
 		showErrorMessage(error.message);
 	}
