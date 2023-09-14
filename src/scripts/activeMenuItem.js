@@ -1,5 +1,5 @@
-const HOME_PATH = '/'; //'/' | '/index.html';
-const LIBRARY_PATH = process.env.NODE_ENV === 'development' ? '/library.html' : '/library'; //'/library' | '/library.html';
+const HOME_PATH = '/';
+const LIBRARY_PATH = process.env.NODE_ENV === 'development' ? '/library.html' : '/library';
 
 console.log();
 

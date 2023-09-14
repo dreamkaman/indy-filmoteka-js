@@ -16,20 +16,19 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
-const auth = getAuth(firebaseApp);
-const db = getFirestore(firebaseApp);
-db.collection('movies').getDocs();
-const moviesCollection = collection(db, 'movies');
-const snapshot = await getDocs(moviesCollection);
+export const auth = getAuth(firebaseApp);
 
-console.log(snapshot);
+// const db = getFirestore(firebaseApp);
+// db.collection('movies').getDocs();
+// const moviesCollection = collection(db, 'movies');
+// const snapshot = await getDocs(moviesCollection);
 
-onAuthStateChanged(auth, (user) => {
-	if (!user) {
-		console.log('User is logged in!');
-	} else {
-		console.log('User is not logged in!');
-	}
-});
+// onAuthStateChanged(auth, (user) => {
+// 	if (!user) {
+// 		console.log('User is logged in!');
+// 	} else {
+// 		console.log('User is not logged in!');
+// 	}
+// });
