@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 import { auth } from './firebase';
 
@@ -8,6 +8,7 @@ import templateRegistrationForm from '../handlebars/registrationForm.hbs';
 import { showErrorMessage, showSuccessMessage } from './toastifyMessages';
 
 const svgUserIcon = document.querySelector('.user-icon');
+const buttonLogout = document.querySelector('button.btn-logout');
 const modalWindowForm = document.querySelector('form.modal-form');
 const loginFormMarkUp = templateLoginForm();
 const registrationFormMarkUp = templateRegistrationForm();
@@ -70,3 +71,26 @@ function addEventListeners() {
 		}
 	});
 }
+
+export const changeUserIcon = (isLoggedIn) => {
+	if (isLoggedIn) {
+		svgUserIcon.classList.add('logined');
+		svgUserIcon.innerHTML = '<use href="./assets/sprite.svg#user-auth"></use>';
+		buttonLogout.classList.remove('visually-hidden');
+		svgUserIcon.setAttribute('disabled', true);
+	} else {
+		svgUserIcon.classList.remove('logined');
+		svgUserIcon.innerHTML = '<use href="./assets/sprite.svg#user-nonauth"></use>';
+		buttonLogout.classList.add('visually-hidden');
+		svgUserIcon.setAttribute('disabled', false);
+	}
+};
+
+buttonLogout.addEventListener('click', () => {
+	try {
+		signOut(auth);
+		showSuccessMessage('User signed out successfully!');
+	} catch (error) {
+		showErrorMessage(error.message);
+	}
+});

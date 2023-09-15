@@ -14,4 +14,3 @@ import './scripts/showDetails';
 import './scripts/modalWindow';
 import './scripts/heartBit';
 import './scripts/authUser';
-// import './scripts/toastifyMessages';

@@ -93,34 +93,58 @@
             }
         }
 
-        .user-icon {
+        .user-icon-wrapper {
             position: absolute;
             top: 20px;
             right: 20px;
 
-            width: 30px;
-            height: 30px;
-            padding: 3px;
+            display: flex;
+            align-items: center;
 
-            border: 1px solid $bg-footer-color;
-            border-radius: 50%;
+            .btn-logout {
+                margin-right: 5px;
+                width: 55px;
+                height: 25px;
 
-            fill: $bg-footer-color;
+                border: 1px solid $accent-color;
+                border-radius: 5px;
+                color: $accent-color;
+                background-color: transparent;
 
-            cursor: pointer;
+                &:hover {
+                    color: #fff;
+                    background-color: $accent-color;
+                }
+            }
 
-            &:hover {
+            .user-icon {
+
+                width: 30px;
+                height: 30px;
+                padding: 3px;
+
+                border: 1px solid $bg-footer-color;
+                border-radius: 50%;
+
+                fill: $bg-footer-color;
+
+                cursor: pointer;
+
+                &:hover {
+                    border-color: $accent-color;
+                    fill: $accent-color;
+                    background-color: transparent;
+                    transition: $transition-for-all;
+                }
+            }
+
+            .logined {
                 border-color: $accent-color;
                 fill: $accent-color;
-                background-color: transparent;
-                transition: $transition-for-all;
             }
         }
 
-        .logined {
-            border-color: $accent-color;
-            fill: $accent-color;
-        }
+
     }
 
     .header-library {
