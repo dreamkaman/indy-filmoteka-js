@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 import { auth } from './firebase';
 
@@ -7,7 +7,9 @@ import templateLoginForm from '../handlebars/loginForm.hbs';
 import templateRegistrationForm from '../handlebars/registrationForm.hbs';
 import { showErrorMessage, showSuccessMessage } from './toastifyMessages';
 
-const svgUserIcon = document.querySelector('.user-icon');
+const svgUserIconNonAuth = document.querySelector('.user-nonauth');
+const svgUserIconAuth = document.querySelector('.user-auth');
+const buttonLogout = document.querySelector('button.btn-logout');
 const modalWindowForm = document.querySelector('form.modal-form');
 const loginFormMarkUp = templateLoginForm();
 const registrationFormMarkUp = templateRegistrationForm();
@@ -47,7 +49,7 @@ modalWindowForm.addEventListener('submit', async (event) => {
 	}
 });
 
-svgUserIcon.addEventListener('click', () => {
+svgUserIconNonAuth.addEventListener('click', () => {
 	modalWindowForm.innerHTML = loginFormMarkUp;
 	showModal();
 	addEventListeners();
@@ -70,3 +72,24 @@ function addEventListeners() {
 		}
 	});
 }
+
+export const changeUserIcon = (isLoggedIn) => {
+	if (isLoggedIn) {
+		svgUserIconNonAuth.classList.add('visually-hidden');
+		svgUserIconAuth.classList.remove('visually-hidden');
+		buttonLogout.classList.remove('visually-hidden');
+	} else {
+		svgUserIconNonAuth.classList.remove('visually-hidden');
+		svgUserIconAuth.classList.add('visually-hidden');
+		buttonLogout.classList.add('visually-hidden');
+	}
+};
+
+buttonLogout.addEventListener('click', () => {
+	try {
+		signOut(auth);
+		showSuccessMessage('User signed out successfully!');
+	} catch (error) {
+		showErrorMessage(error.message);
+	}
+});

@@ -1,8 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase } from 'firebase/database';
+import { getDatabase, ref } from 'firebase/database';
 // import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { changeUserIcon } from './authUser';
 
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
 
@@ -30,10 +31,13 @@ export const dataBase = getDatabase(firebaseApp, dataBaseUrl);
 // const moviesCollection = collection(db, 'movies');
 // const snapshot = await getDocs(moviesCollection);
 
-// onAuthStateChanged(auth, (user) => {
-// 	if (!user) {
-// 		console.log('User is logged in!');
-// 	} else {
-// 		console.log('User is not logged in!');
-// 	}
-// });
+onAuthStateChanged(auth, (user) => {
+	changeUserIcon(user?.accessToken);
+	if (!user) {
+		console.log('User is not logged in!');
+		console.log(user);
+	} else {
+		console.log('User is logged in!');
+		console.log(user);
+	}
+});
