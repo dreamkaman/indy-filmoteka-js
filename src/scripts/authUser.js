@@ -7,7 +7,8 @@ import templateLoginForm from '../handlebars/loginForm.hbs';
 import templateRegistrationForm from '../handlebars/registrationForm.hbs';
 import { showErrorMessage, showSuccessMessage } from './toastifyMessages';
 
-const svgUserIcon = document.querySelector('.user-icon');
+const svgUserIconNonAuth = document.querySelector('.user-nonauth');
+const svgUserIconAuth = document.querySelector('.user-auth');
 const buttonLogout = document.querySelector('button.btn-logout');
 const modalWindowForm = document.querySelector('form.modal-form');
 const loginFormMarkUp = templateLoginForm();
@@ -48,7 +49,7 @@ modalWindowForm.addEventListener('submit', async (event) => {
 	}
 });
 
-svgUserIcon.addEventListener('click', () => {
+svgUserIconNonAuth.addEventListener('click', () => {
 	modalWindowForm.innerHTML = loginFormMarkUp;
 	showModal();
 	addEventListeners();
@@ -74,15 +75,13 @@ function addEventListeners() {
 
 export const changeUserIcon = (isLoggedIn) => {
 	if (isLoggedIn) {
-		svgUserIcon.classList.add('logined');
-		svgUserIcon.innerHTML = '<use href="./assets/sprite.svg#user-auth"></use>';
+		svgUserIconNonAuth.classList.add('visually-hidden');
+		svgUserIconAuth.classList.remove('visually-hidden');
 		buttonLogout.classList.remove('visually-hidden');
-		svgUserIcon.setAttribute('disabled', true);
 	} else {
-		svgUserIcon.classList.remove('logined');
-		svgUserIcon.innerHTML = '<use href="./assets/sprite.svg#user-nonauth"></use>';
+		svgUserIconNonAuth.classList.remove('visually-hidden');
+		svgUserIconAuth.classList.add('visually-hidden');
 		buttonLogout.classList.add('visually-hidden');
-		svgUserIcon.setAttribute('disabled', false);
 	}
 };
 
