@@ -4,6 +4,10 @@ import { paginationOptions } from './pagination';
 import template from '../handlebars/filmCardModal.hbs';
 import { showModal } from './modalWindow';
 import { allGenres } from '../API/api';
+import { writeMovie } from './firebase';
+import { userState } from './authUser';
+import { showErrorMessage } from './toastifyMessages';
+import { push } from 'firebase/database';
 
 export const modalWindowForm = document.querySelector('form.modal-form');
 const watchedMovies = () => JSON.parse(localStorage.getItem('watchedMovies'));
@@ -32,6 +36,10 @@ function addEventListeners() {
 	const addToWatchedButton = document.querySelector('button.btn-add-to-watched');
 	const addToQueueButton = document.querySelector('button.btn-add-to-queue');
 
+	if (!userState?.userId) {
+		showErrorMessage('User is not logged in!');
+	} //Check userId for read/write database.
+
 	if (watchedMovies()?.find((movie) => movie.id === transformedMovie.id)) {
 		addToWatchedButton.textContent = 'Remove from watched';
 	}
@@ -49,7 +57,8 @@ function addEventListeners() {
 					localStorage.setItem('queueMovies', JSON.stringify([transformedMovie]));
 				}
 				event.target.textContent = 'Remove from queue';
-
+				//Firebase test block
+				writeMovie(userState?.userId, 'queueMovies', transformedMovie);
 				break;
 			case 'Remove from queue':
 				localStorage.setItem(
@@ -73,6 +82,8 @@ function addEventListeners() {
 					localStorage.setItem('watchedMovies', JSON.stringify([transformedMovie]));
 				}
 				addToWatchedButton.textContent = 'Remove from watched';
+				//Firebase test block
+				writeMovie(userState?.userId, 'watchedMovies', transformedMovie);
 				break;
 
 			case 'Remove from watched':
