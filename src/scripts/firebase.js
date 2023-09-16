@@ -1,9 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref } from 'firebase/database';
+import { getDatabase, push, ref, set, query } from 'firebase/database';
 // import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import { changeUserIcon } from './authUser';
+import { changeUserIcon, userState } from './authUser';
+import { showErrorMessage } from './toastifyMessages';
 
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
 
@@ -26,13 +27,9 @@ const dataBaseUrl = process.env.FIREBASE_DB_URL;
 
 export const dataBase = getDatabase(firebaseApp, dataBaseUrl);
 
-// const db = getFirestore(firebaseApp);
-// db.collection('movies').getDocs();
-// const moviesCollection = collection(db, 'movies');
-// const snapshot = await getDocs(moviesCollection);
-
 onAuthStateChanged(auth, (user) => {
 	changeUserIcon(user?.accessToken);
+	userState.userId = user?.uid;
 	if (!user) {
 		console.log('User is not logged in!');
 		console.log(user);
@@ -41,3 +38,40 @@ onAuthStateChanged(auth, (user) => {
 		console.log(user);
 	}
 });
+
+export const writeMovie = (userId, typeOfMovieList, movie) => {
+	if (!userId) {
+		showErrorMessage('User is not logged in!');
+		return;
+	}
+
+	const referenceDB = ref(dataBase, `moviesDB/${userId}/${typeOfMovieList}`);
+	try {
+		// set(referenceDB, {
+		// 	movie,
+		// });
+		push(referenceDB, { movie });
+	} catch (error) {
+		showErrorMessage(error.message);
+	}
+};
+
+export const readMovie = (userId, typeOfMovieList) => {
+	if (!userId) {
+		showErrorMessage('User is not logged in!');
+		return;
+	}
+
+	const referenceDB = ref(dataBase, `moviesDB/${userId}/${typeOfMovieList}`);
+	try {
+		// set(referenceDB, {
+		// 	movie,
+		// });
+		get(referenceDB).then((result) => {
+			console.log(result);
+			return result;
+		});
+	} catch (error) {
+		showErrorMessage(error.message);
+	}
+};

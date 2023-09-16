@@ -6,11 +6,12 @@ import './partials/footer.html';
 import './partials/section-films.html';
 import './index.scss'; //for 'mini-css-extract-plugin'
 
+import './scripts/authUser';
 import './scripts/activeMenuItem';
 import './scripts/popularMovies';
 import './scripts/pagination';
 import './scripts/searchMovie';
 import './scripts/showDetails';
 import './scripts/modalWindow';
+import './scripts/firebase';
 import './scripts/heartBit';
-import './scripts/authUser';

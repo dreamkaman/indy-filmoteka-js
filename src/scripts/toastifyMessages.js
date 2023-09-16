@@ -3,7 +3,7 @@ export function showSuccessMessage(message) {
 		text: message,
 		gravity: 'top',
 		position: 'right',
-		duration: 5000,
+		duration: 3000,
 		backgroundColor: '#00ff00',
 		style: {
 			color: '#000',
@@ -16,7 +16,7 @@ export function showErrorMessage(message) {
 		text: message,
 		gravity: 'top',
 		position: 'right',
-		duration: 5000,
+		duration: 3000,
 		backgroundColor: '#ff0000',
 		style: {
 			color: '#fff',
