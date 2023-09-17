@@ -7,10 +7,6 @@ import templateLoginForm from '../handlebars/loginForm.hbs';
 import templateRegistrationForm from '../handlebars/registrationForm.hbs';
 import { showErrorMessage, showSuccessMessage } from './toastifyMessages';
 
-export const userState = {
-	userId: null,
-};
-
 const svgUserIconNonAuth = document.querySelector('.user-nonauth');
 const svgUserIconAuth = document.querySelector('.user-auth');
 const buttonLogout = document.querySelector('button.btn-logout');

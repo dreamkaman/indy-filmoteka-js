@@ -5,13 +5,11 @@ import template from '../handlebars/filmCardModal.hbs';
 import { showModal } from './modalWindow';
 import { allGenres } from '../API/api';
 import { writeMovieDB } from './firebase';
-import { userState } from './authUser';
-import { showErrorMessage } from './toastifyMessages';
-import { push } from 'firebase/database';
+import { userState } from './state';
+import { showErrorMessage, showSuccessMessage } from './toastifyMessages';
+import { moviesCollections } from './state';
 
 export const modalWindowForm = document.querySelector('form.modal-form');
-const watchedMovies = () => JSON.parse(localStorage.getItem('watchedMovies'));
-const queueMovies = () => JSON.parse(localStorage.getItem('queueMovies'));
 
 let transformedMovie;
 
@@ -36,63 +34,64 @@ function addEventListeners() {
 	const addToWatchedButton = document.querySelector('button.btn-add-to-watched');
 	const addToQueueButton = document.querySelector('button.btn-add-to-queue');
 
+	console.log(moviesCollections);
+
 	if (!userState?.userId) {
-		showErrorMessage('User is not logged in!');
+		showErrorMessage('User is not authorized!');
+		return;
 	} //Check userId for read/write database.
 
-	if (watchedMovies()?.find((movie) => movie.id === transformedMovie.id)) {
+	if (moviesCollections.watchedMovies.find((movie) => movie.id === transformedMovie.id)) {
 		addToWatchedButton.textContent = 'Remove from watched';
 	}
 
-	if (queueMovies()?.find((movie) => movie.id === transformedMovie.id)) {
+	if (moviesCollections.queueMovies.find((movie) => movie.id === transformedMovie.id)) {
 		addToQueueButton.textContent = 'Remove from queue';
 	}
 
 	addToQueueButton.addEventListener('click', (event) => {
 		switch (event.target.textContent) {
 			case 'Add to queue':
-				if (queueMovies()?.length) {
-					localStorage.setItem('queueMovies', JSON.stringify([...queueMovies(), transformedMovie]));
-				} else {
-					localStorage.setItem('queueMovies', JSON.stringify([transformedMovie]));
-				}
+				moviesCollections.queueMovies.push(transformedMovie);
+
 				event.target.textContent = 'Remove from queue';
-				//Firebase test block
-				writeMovieDB(userState?.userId, 'queueMovies', transformedMovie);
+
+				showSuccessMessage('The movie was added to queue movies!');
+
 				break;
 			case 'Remove from queue':
-				localStorage.setItem(
-					'queueMovies',
-					JSON.stringify(queueMovies().filter((movie) => movie.id !== transformedMovie.id)),
+				moviesCollections.queueMovies = moviesCollections.queueMovies.filter(
+					(movie) => movie.id !== transformedMovie.id,
 				);
+
 				event.target.textContent = 'Add to queue';
+
+				showSuccessMessage('The movie was removed from queue movies!');
 				break;
 		}
+		writeMovieDB(userState.userId, 'queueMovies', moviesCollections.queueMovies);
 	});
 
 	addToWatchedButton.addEventListener('click', (event) => {
 		switch (event.target.textContent) {
 			case 'Add to watched':
-				if (watchedMovies()?.length) {
-					localStorage.setItem(
-						'watchedMovies',
-						JSON.stringify([...watchedMovies(), transformedMovie]),
-					);
-				} else {
-					localStorage.setItem('watchedMovies', JSON.stringify([transformedMovie]));
-				}
-				addToWatchedButton.textContent = 'Remove from watched';
-				//Firebase test block
-				writeMovieDB(userState?.userId, 'watchedMovies', transformedMovie);
-				break;
+				moviesCollections.watchedMovies.push(transformedMovie);
 
+				event.target.textContent = 'Remove from watched';
+
+				showSuccessMessage('The movie was added to watched movies!');
+
+				break;
 			case 'Remove from watched':
-				localStorage.setItem(
-					'watchedMovies',
-					JSON.stringify(watchedMovies().filter((movie) => movie.id !== transformedMovie.id)),
+				moviesCollections.watchedMovies = moviesCollections.watchedMovies.filter(
+					(movie) => movie.id !== transformedMovie.id,
 				);
-				addToWatchedButton.textContent = 'Add to watched';
+
+				event.target.textContent = 'Add to watched';
+
+				showSuccessMessage('The movie was removed from watched movies!');
 				break;
 		}
+		writeMovieDB(userState.userId, 'watchedMovies', moviesCollections.watchedMovies);
 	});
 }
