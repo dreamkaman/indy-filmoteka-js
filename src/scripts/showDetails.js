@@ -4,7 +4,7 @@ import { paginationOptions } from './pagination';
 import template from '../handlebars/filmCardModal.hbs';
 import { showModal } from './modalWindow';
 import { allGenres } from '../API/api';
-import { writeMovie } from './firebase';
+import { writeMovieDB } from './firebase';
 import { userState } from './authUser';
 import { showErrorMessage } from './toastifyMessages';
 import { push } from 'firebase/database';
@@ -58,7 +58,7 @@ function addEventListeners() {
 				}
 				event.target.textContent = 'Remove from queue';
 				//Firebase test block
-				writeMovie(userState?.userId, 'queueMovies', transformedMovie);
+				writeMovieDB(userState?.userId, 'queueMovies', transformedMovie);
 				break;
 			case 'Remove from queue':
 				localStorage.setItem(
@@ -83,7 +83,7 @@ function addEventListeners() {
 				}
 				addToWatchedButton.textContent = 'Remove from watched';
 				//Firebase test block
-				writeMovie(userState?.userId, 'watchedMovies', transformedMovie);
+				writeMovieDB(userState?.userId, 'watchedMovies', transformedMovie);
 				break;
 
 			case 'Remove from watched':
