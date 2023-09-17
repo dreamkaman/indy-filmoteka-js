@@ -1,8 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, push, ref, set, query, get } from 'firebase/database';
-import { changeUserIcon, userState } from './authUser';
+import { getDatabase, ref, set, get } from 'firebase/database';
+import { changeUserIcon } from './authUser';
+import { userState, moviesCollections } from './state';
 import { showErrorMessage } from './toastifyMessages';
 
 const FIREBASE_API_KEY = process.env.FIREBASE_API_KEY;
@@ -34,25 +35,16 @@ export const writeMovieDB = (userId, typeOfMovieList, userMovies) => {
 
 	const referenceDB = ref(dataBase, `moviesDB/${userId}/${typeOfMovieList}`);
 	try {
-		set(referenceDB, {
-			userMovies,
-		});
+		set(referenceDB, userMovies);
 	} catch (error) {
 		showErrorMessage(error.message);
 	}
 };
 
 export const readMovieDB = async (userId, typeOfMovieList) => {
-	// if (!userId) {
-	// 	showErrorMessage('User is not logged in!');
-	// 	return;
-	// }
-
 	const referenceDB = ref(dataBase, `moviesDB/${userId}/${typeOfMovieList}`);
 	try {
 		const snapshot = await get(referenceDB);
-
-		console.log(snapshot.val());
 
 		return snapshot.val();
 	} catch (error) {
@@ -60,9 +52,17 @@ export const readMovieDB = async (userId, typeOfMovieList) => {
 	}
 };
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
 	changeUserIcon(user?.accessToken);
 	userState.userId = user?.uid;
-	readMovieDB(user?.uid, 'watchedMovies');
-	readMovieDB(user?.uid, 'queueMovies');
+	if (user) {
+		const watchedMovies = await readMovieDB(user.uid, 'watchedMovies');
+		const queueMovies = await readMovieDB(user.uid, 'queueMovies');
+
+		moviesCollections.watchedMovies = watchedMovies?.length ? watchedMovies : [];
+		moviesCollections.queueMovies = queueMovies?.length ? queueMovies : [];
+	} else {
+		moviesCollections.watchedMovies = [];
+		moviesCollections.queueMovies = [];
+	}
 });
