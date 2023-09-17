@@ -1,8 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, push, ref, set, query } from 'firebase/database';
-// import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { getDatabase, push, ref, set, query, get } from 'firebase/database';
 import { changeUserIcon, userState } from './authUser';
 import { showErrorMessage } from './toastifyMessages';
 
@@ -27,19 +26,7 @@ const dataBaseUrl = process.env.FIREBASE_DB_URL;
 
 export const dataBase = getDatabase(firebaseApp, dataBaseUrl);
 
-onAuthStateChanged(auth, (user) => {
-	changeUserIcon(user?.accessToken);
-	userState.userId = user?.uid;
-	if (!user) {
-		console.log('User is not logged in!');
-		console.log(user);
-	} else {
-		console.log('User is logged in!');
-		console.log(user);
-	}
-});
-
-export const writeMovie = (userId, typeOfMovieList, movie) => {
+export const writeMovieDB = (userId, typeOfMovieList, userMovies) => {
 	if (!userId) {
 		showErrorMessage('User is not logged in!');
 		return;
@@ -47,31 +34,35 @@ export const writeMovie = (userId, typeOfMovieList, movie) => {
 
 	const referenceDB = ref(dataBase, `moviesDB/${userId}/${typeOfMovieList}`);
 	try {
-		// set(referenceDB, {
-		// 	movie,
-		// });
-		push(referenceDB, { movie });
-	} catch (error) {
-		showErrorMessage(error.message);
-	}
-};
-
-export const readMovie = (userId, typeOfMovieList) => {
-	if (!userId) {
-		showErrorMessage('User is not logged in!');
-		return;
-	}
-
-	const referenceDB = ref(dataBase, `moviesDB/${userId}/${typeOfMovieList}`);
-	try {
-		// set(referenceDB, {
-		// 	movie,
-		// });
-		get(referenceDB).then((result) => {
-			console.log(result);
-			return result;
+		set(referenceDB, {
+			userMovies,
 		});
 	} catch (error) {
 		showErrorMessage(error.message);
 	}
 };
+
+export const readMovieDB = async (userId, typeOfMovieList) => {
+	// if (!userId) {
+	// 	showErrorMessage('User is not logged in!');
+	// 	return;
+	// }
+
+	const referenceDB = ref(dataBase, `moviesDB/${userId}/${typeOfMovieList}`);
+	try {
+		const snapshot = await get(referenceDB);
+
+		console.log(snapshot.val());
+
+		return snapshot.val();
+	} catch (error) {
+		showErrorMessage(error.message);
+	}
+};
+
+onAuthStateChanged(auth, (user) => {
+	changeUserIcon(user?.accessToken);
+	userState.userId = user?.uid;
+	readMovieDB(user?.uid, 'watchedMovies');
+	readMovieDB(user?.uid, 'queueMovies');
+});

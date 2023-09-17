@@ -1,16 +1,13 @@
 import template from '../handlebars/filmsGridLibrary.hbs';
+import { readMovieDB } from './firebase';
 import { userState } from './authUser';
-import { readMovie } from './firebase';
 
 const watchedButton = document.getElementById('watched');
 const queueButton = document.getElementById('queue');
 const moviesGridSection = document.querySelector('div.selected-films-grid');
 
-const watchedMovies = readMovie(userState?.userId, 'watchedMovies');
-const queueMovies = readMovie(userState?.userId, 'queueMovies');
-console.log(queueMovies);
-console.log('Show library ran!');
-console.log(userState.userId);
+const watchedMovies = readMovieDB(userState?.userId, 'watchedMovies');
+const queueMovies = readMovieDB(userState?.userId, 'queueMovies');
 
 const markUp = template({ films: watchedMovies });
 
