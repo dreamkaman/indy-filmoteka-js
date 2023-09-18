@@ -9,7 +9,6 @@ const queueButton = document.getElementById('queue');
 const moviesGridSection = document.querySelector('div.selected-films-grid');
 
 onAuthStateChanged(auth, async (user) => {
-	console.log('onAuthStateChanged on library works!');
 	const watchedMovies = user?.uid ? await readMovieDB(user.uid, 'watchedMovies') : [];
 
 	const markUp = watchedMovies.length
