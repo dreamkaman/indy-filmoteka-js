@@ -34,8 +34,6 @@ function addEventListeners() {
 	const addToWatchedButton = document.querySelector('button.btn-add-to-watched');
 	const addToQueueButton = document.querySelector('button.btn-add-to-queue');
 
-	console.log(moviesCollections);
-
 	if (!userState?.userId) {
 		showErrorMessage('User is not authorized!');
 		return;
