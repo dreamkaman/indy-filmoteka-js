@@ -11,6 +11,7 @@ const svgUserIconNonAuth = document.querySelector('.user-nonauth');
 const svgUserIconAuth = document.querySelector('.user-auth');
 const buttonLogout = document.querySelector('button.btn-logout');
 const modalWindowForm = document.querySelector('form.modal-form');
+const loginText = document.querySelector('p.login-text');
 const loginFormMarkUp = templateLoginForm();
 const registrationFormMarkUp = templateRegistrationForm();
 
@@ -78,10 +79,12 @@ export const changeUserIcon = (isLoggedIn) => {
 		svgUserIconNonAuth.classList.add('visually-hidden');
 		svgUserIconAuth.classList.remove('visually-hidden');
 		buttonLogout.classList.remove('visually-hidden');
+		loginText.classList.add('visually-hidden');
 	} else {
 		svgUserIconNonAuth.classList.remove('visually-hidden');
 		svgUserIconAuth.classList.add('visually-hidden');
 		buttonLogout.classList.add('visually-hidden');
+		loginText.classList.remove('visually-hidden');
 	}
 };
 
