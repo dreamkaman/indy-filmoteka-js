@@ -36,7 +36,12 @@ function addEventListeners() {
 
 	if (!userState?.userId) {
 		showErrorMessage('User is not authorized!');
+		addToWatchedButton.classList.add('visually-hidden');
+		addToQueueButton.classList.add('visually-hidden');
 		return;
+	} else {
+		addToWatchedButton.classList.remove('visually-hidden');
+		addToQueueButton.classList.remove('visually-hidden');
 	} //Check userId for read/write database.
 
 	if (moviesCollections.watchedMovies.find((movie) => movie.id === transformedMovie.id)) {
