@@ -197,8 +197,13 @@
     .page-header {
         background-image: url('../partials/assets/header-desktop.jpg');
 
-        .page-header__logo-text {
-            &:hover {
+        .logo-wrapper:hover {
+            .page-header__logo {
+                stroke: $accent-color;
+                transition: $transition-for-all;
+            }
+
+            .page-header__logo-text {
                 color: $accent-color;
                 transition: $transition-for-all;
             }
