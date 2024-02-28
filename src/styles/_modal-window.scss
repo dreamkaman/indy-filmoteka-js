@@ -1,0 +1,226 @@
+.backdrop {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+
+    background-color: rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
+
+    .modal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+
+        .modal__close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            width: 30px;
+            height: 30px;
+            stroke: #000;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (min-width: 320px) {
+
+    .backdrop {
+
+        .modal {
+            transform: translate(-50%, -25%);
+            width: calc(100% - 40px);
+            max-width: 450px;
+
+            .modal-form {
+                padding: 50px 20px 40px;
+
+                .movie__poster {
+                    margin-bottom: 30px;
+                    border-radius: 5px;
+                }
+
+                .movie__title {
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: normal;
+                    text-transform: uppercase;
+                }
+
+                table {
+                    margin-bottom: 20px;
+                    font-weight: 500;
+
+
+                    td {
+                        vertical-align: text-top;
+
+                        span {
+                            padding: 1px 8px;
+                            border-radius: 5px;
+                            color: #fff;
+                            background-color: $accent-color;
+                        }
+                    }
+
+                    .original-title {
+                        text-transform: uppercase;
+                    }
+
+                    .row-title {
+                        padding-right: 40px;
+
+
+                        white-space: nowrap;
+                        color: $table-title-color;
+                    }
+
+                    .row-title:not(:last-child) {
+                        padding-bottom: 10px;
+                    }
+                }
+
+                h4 {
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                    line-height: 133.333%;
+                    text-transform: uppercase;
+                }
+
+                .overview {
+                    margin-bottom: 20px;
+                    line-height: 166.667%;
+                }
+
+                .button-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        padding: 5px;
+                        border: 1px solid;
+                        border-radius: 5px;
+                        width: 113px;
+                        height: 44px;
+
+                        text-transform: uppercase;
+                    }
+
+                    .btn-add-to-watched {
+                        border-color: transparent;
+                        color: #fff;
+                        background-color: $accent-color;
+                        margin-right: 14px;
+                    }
+
+                    .btn-add-to-queue {
+                        border-color: #000;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .backdrop {
+
+        .modal {
+            width: calc(100% - 2 * 75px);
+            transform: translate(-50%, -50%);
+            max-width: 618px;
+
+            .modal-form {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 40px 30px;
+
+                .movie__poster {
+                    width: calc(50% - 30px / 2);
+                    margin-bottom: 0;
+                    border-radius: 5px;
+                }
+
+                .movie-info {
+                    width: calc(50% - 30px / 2);
+
+                    .button-wrapper {
+
+                        button {
+                            width: 125px;
+                        }
+
+                    }
+                }
+
+
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .backdrop {
+
+        .modal {
+            width: calc(100% - 2 * 75px);
+            max-width: 880px;
+
+            .modal__close-button {
+                &:hover {
+                    stroke: $accent-color;
+                }
+            }
+
+            .modal-form {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 40px 30px;
+
+                .movie-info {
+
+                    .button-wrapper {
+
+                        .btn-add-to-watched {
+                            &:hover {
+                                color: black;
+                                background-color: #fff;
+                                border-color: black;
+                            }
+                        }
+
+                        .btn-add-to-queue {
+
+                            &:hover {
+                                color: #fff;
+                                background-color: $accent-color;
+                                border-color: transparent;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+}
