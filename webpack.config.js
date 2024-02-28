@@ -81,6 +81,18 @@ module.exports = {
 				template_filename: 'library.html',
 				priority: 'replace',
 			},
+			{
+				path: path.resolve(__dirname, 'src/partials', 'modal-window.html'),
+				location: 'modal',
+				template_filename: 'index.html',
+				priority: 'replace',
+			},
+			{
+				path: path.resolve(__dirname, 'src/partials', 'modal-window.html'),
+				location: 'modal',
+				template_filename: 'library.html',
+				priority: 'replace',
+			},
 		]),
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css',

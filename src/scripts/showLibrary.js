@@ -15,7 +15,7 @@ onAuthStateChanged(auth, async (user) => {
 
 	const markUp = user?.uid
 		? template({ films: watchedMovies })
-		: '<p style="color:red">Please, log in to watch the list of movies!</p>';
+		: '<p style="color:red; padding-top:20px">Please, log in to watch the list of movies!</p>';
 
 	moviesGridSection.innerHTML = markUp;
 });
@@ -23,7 +23,7 @@ onAuthStateChanged(auth, async (user) => {
 watchedButton.addEventListener('click', () => {
 	const markUp = userState.userId
 		? template({ films: moviesCollections.watchedMovies })
-		: '<p style="color:red">Please, log in to watch the list of movies!</p>';
+		: '<p style="color:red; padding-top:20px">Please, log in to watch the list of movies!</p>';
 
 	moviesGridSection.innerHTML = markUp;
 });
@@ -31,7 +31,7 @@ watchedButton.addEventListener('click', () => {
 queueButton.addEventListener('click', () => {
 	const markUp = userState.userId
 		? template({ films: moviesCollections.queueMovies })
-		: '<p style="color:red">Please, log in to watch the list of movies!</p>';
+		: '<p style="color:red; padding-top:20px">Please, log in to watch the list of movies!</p>';
 
 	moviesGridSection.innerHTML = markUp;
 });
