@@ -21,7 +21,7 @@ export const transformMovies = (movies, allGenres) => {
 			titleFull: title,
 			title: title.length < 40 ? title : title.slice(0, 37) + '...',
 			year: getYear(release_date) || 'Unknown release date',
-			posterPath: poster_path ? `https://www.themoviedb.org/t/p/w1280${poster_path}` : img,
+			posterPath: poster_path ? `https://image.tmdb.org/t/p/w1280${poster_path}` : img,
 			genres: genre_ids?.length
 				? transformGenres(genre_ids, allGenres).genresStr
 				: 'Unknown genres',
